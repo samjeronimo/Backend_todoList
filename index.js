@@ -2,22 +2,25 @@
 // de entorno del archivo .env
 require('dotenv').config();
 
+
 // importando el módulo express
 const express = require('express');
+const cors = require('cors');  
 
-/**
- * Crea la instancia principal de Express.
- * Esta será la base para:
- * - Definir rutas (app.get/post/put/delete)
- * - Registrar middlewares (app.use)
- * - Iniciar el servidor (app.listen)
- */
 const app = express();
 
-// MIS RUTAS MIDDLEWARE
-app.get('/',(req,res)=>{
-    res.send("Mi backEnd con ExpressJS");
-});
+
+//CORS
+app.use(cors());
+
+
+const getTablas = require('./routes/get/obtenerTablas');
+app.use(getTablas);
+
+
+const getTareas = require('./routes/get/obtenerTareas');
+app.use(getTareas);
+
 
 // CONFIGURACIÓN DEL SERVIDOR
 // process.env.PORT: Lee el puerto desde las variables de entorno (archivo .env)
