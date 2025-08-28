@@ -20,7 +20,7 @@ app.use(getTablas);
 
 const getTareas = require('./routes/get/obtenerTareas');
 app.use(getTareas);
-
+    
 
 // CONFIGURACIÓN DEL SERVIDOR
 // process.env.PORT: Lee el puerto desde las variables de entorno (archivo .env)
